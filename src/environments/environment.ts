@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDjWpzQdAW_hpK1-pkCuHg0N2biIIzzveE",
+    authDomain: "girlstalk-d332d.firebaseapp.com",
+    projectId: "girlstalk-d332d",
+    storageBucket: "girlstalk-d332d.appspot.com",
+    messagingSenderId: "600124136212",
+    appId: "1:600124136212:web:0583285e73b1565b02c001",
+    measurementId: "G-8ZSZR312NM"
+  }
 };
 
 /*

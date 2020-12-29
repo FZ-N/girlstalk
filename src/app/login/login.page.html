@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/lg.png" />
+
+  <ion-input expand="block" [(ngModel)]="user.email" placeholder="email"></ion-input>
+  <br>
+  <ion-input expand="block"  [(ngModel)]="user.password" placeholder="password" type ="password"></ion-input>
+  <br>
+  <ion-button expand="block" (click)="logMeIn()" color="medium">Log in</ion-button>
+  <ion-button  expand="block" (click)="Register()" color="secondary">Register</ion-button>
+</ion-content>

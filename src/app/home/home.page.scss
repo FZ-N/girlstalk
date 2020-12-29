@@ -1,6 +1,5 @@
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -21,7 +20,20 @@
 
   margin: 0;
 }
+h2{
+  color: #fff;
+	font-size: 19px;
+}
+h1{
+  color: mix(#fff, #e91e63, 85%);
+	font-size: calc(1em + 20vw) ;  
+	font-weight: 900;
+}
 
 #container a {
   text-decoration: none;
+}
+ion-content{
+
+  --ion-background-color: #edb2f5;
 }
