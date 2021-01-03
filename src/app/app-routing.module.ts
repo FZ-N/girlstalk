@@ -14,7 +14,19 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'forum',
+    loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
   },
+  {
+    path: 'forum',
+    loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+
 ];
 
 @NgModule({
