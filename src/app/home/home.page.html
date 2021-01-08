@@ -1,4 +1,5 @@
 <ion-header>
+  <!--
   <ion-toolbar color="tertiary">
     <ion-title>
       Home
@@ -8,7 +9,7 @@
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
   </ion-buttons>
-  </ion-toolbar>
+  </ion-toolbar>-->
 </ion-header>
 
 <ion-content [fullscreen]="true" >
@@ -21,9 +22,13 @@
 
 
 
-
+  <center>    
     <h2><b> Un chat fait par des filles pour les filles !</b></h2>
-    <ion-button expand="block" (click)="Go()" color=#edb2f5>Go Chat</ion-button>
+    <ion-button expand="block" fill ="clear" class="myb" (click)="Go()" >Go Chat</ion-button>
+    <ion-button expand="block" fill ="clear" class="myb" (click)="Go()" >Private Chat</ion-button>
+    <ion-button expand="block" fill ="clear" class="myb" (click)="Go()" >My account</ion-button>
+  
+  </center>
 
   </div>
 </ion-content>
