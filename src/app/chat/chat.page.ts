@@ -29,6 +29,7 @@ export class ChatPage implements OnInit {
   constructor(
     public firestore: AngularFirestore,
     private  service:ChatService,
+    private router:Router,
     private afDB :AngularFireDatabase,
     private afAuth :AngularFireAuth,
     ) { 

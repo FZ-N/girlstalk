@@ -23,10 +23,11 @@
 
 
   <center>    
-    <h2><b> Un chat fait par des filles pour les filles !</b></h2>
+    <h2><b> Bienvenue {{service.login}} !</b></h2>
+    <br>
     <ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/chat')" >Go Chat</ion-button>
-    <ion-button expand="block" fill ="clear" class="myb"  >Private Chat</ion-button>
-    <ion-button expand="block" fill ="clear" class="myb"  >My account</ion-button>
+    <ion-button expand="block" fill ="clear" class="myb"   >Private Chat</ion-button>
+    <ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/account')" >My account</ion-button>
   
   </center>
 
