@@ -86,7 +86,8 @@ export class ChatPage implements OnInit {
 
 
   getMessages() {
-    this.firestore.collection("Message").snapshotChanges()
+    
+    this.firestore.collection("Message", ref => ref.orderBy('date')).snapshotChanges()
     .subscribe(actions => {
       this.messages = [];
       actions.forEach(action => {
