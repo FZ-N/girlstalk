@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
-
+import{ ChatService } from '../chat.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,18 +8,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class HomePage {
   connected = false;
 
-  constructor(private router:Router,private afAuth :AngularFireAuth) {}
+  constructor(private  service:ChatService ) { }
 
-  async Go(){
-    this.router.navigate(['/chat']);
-  }
-
-  logout(){
-    console.log("Logout");
-    this.connected = false;
-    this.afAuth.signOut().then(() => {
-      this.router.navigate(['/login']);
-    });
-  }
+ 
 
 }

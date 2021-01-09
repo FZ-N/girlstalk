@@ -43,6 +43,15 @@ export class ChatPage implements OnInit {
         this.getMessages();
       }
     });
+    this.firestore.collection("User").snapshotChanges()
+    .subscribe(actions => {
+      actions.forEach(action => {
+        if (action.payload.doc.data()["email"]==this.email){
+          this.login= action.payload.doc.data()["login"] ;
+                  
+          }
+      });
+    });
   }
 
   ngOnInit() {
@@ -58,21 +67,8 @@ export class ChatPage implements OnInit {
       this.router.navigate(['/login']);
     });
   }
-  getLogin() {
 
-    this.firestore.collection("User").snapshotChanges()
-    .subscribe(actions => {
-      actions.forEach(action => {
-        if (action.payload.doc.data()["email"]==this.email){
-          this.login= action.payload.doc.data()["login"] ;
-                  
-          }
-      });
-    });
-     
-  }
   sendMessage(){
-    this.getLogin();
     console.log('messageText :' + this.login)
     console.log('messageText :' + this.messageText)
     this.firestore.collection('Message').add({
