@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase';
+import{ ChatService } from '../chat.service';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-chat',
@@ -28,7 +28,7 @@ export class ChatPage implements OnInit {
 
   constructor(
     public firestore: AngularFirestore,
-    private router:Router,
+    private  service:ChatService,
     private afDB :AngularFireDatabase,
     private afAuth :AngularFireAuth,
     ) { 
@@ -56,17 +56,7 @@ export class ChatPage implements OnInit {
 
   ngOnInit() {
   }
-  async GoHome(){
-    this.router.navigate(['/home']);
-  }
 
-  logout(){
-    console.log("Logout");
-    this.connected = false;
-    this.afAuth.signOut().then(() => {
-      this.router.navigate(['/login']);
-    });
-  }
 
   sendMessage(){
     console.log('messageText :' + this.login)

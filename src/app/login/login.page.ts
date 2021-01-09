@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { __await } from 'tslib';
+import{ ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
     email :'',
     password:''
   }
-  constructor(private router:Router, public ngFireAuth: AngularFireAuth) { }
+  constructor(private  service:ChatService,private router:Router, public ngFireAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -28,10 +29,6 @@ export class LoginPage implements OnInit {
     }else{
       alert('login failed !');
     }
-  }
-
-  async Register(){
-    this.router.navigate(['/register']);
   }
 
 }

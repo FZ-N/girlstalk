@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { __await } from 'tslib';
 import { AngularFirestore } from '@angular/fire/firestore';
+import{ ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterPage implements OnInit {
   }
   userId: string;
   connected = false;
-  constructor(private router:Router, public ngFireAuth: AngularFireAuth,public firestore: AngularFirestore,private afAuth :AngularFireAuth) {  this.afAuth.authState.subscribe(auth => {
+  constructor( private  service:ChatService,private router:Router, public ngFireAuth: AngularFireAuth,public firestore: AngularFirestore,private afAuth :AngularFireAuth) {  this.afAuth.authState.subscribe(auth => {
     if (!auth) {
       console.log('non connecté');
     } else {

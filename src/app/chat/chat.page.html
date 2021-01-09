@@ -2,10 +2,10 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
-      <ion-menu-button auto-hide="false"  (click)="GoHome()"></ion-menu-button>
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\home')"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="primary">
-        <ion-button color="light" (click)="logout()">
+        <ion-button color="light" (click)="service.logout()">
           <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>

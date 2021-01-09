@@ -11,8 +11,8 @@ export class ChatService {
 
   constructor(private router:Router,private afAuth :AngularFireAuth) {}
 
-  async Go(){
-    this.router.navigate(['/chat']);
+  async Go(x){
+    this.router.navigate([x]);
   }
 
   logout(){
