@@ -13,9 +13,7 @@ export class ChatService {
   connected = false;
   userId: string;
   email: string;
-  messageText: any;
   login: string;
-
   constructor(
     private router:Router,
     public firestore: AngularFirestore,
@@ -54,4 +52,5 @@ export class ChatService {
       this.router.navigate(['/login']);
     });
   }
+
 }

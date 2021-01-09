@@ -14,6 +14,6 @@ export class AccountPage implements OnInit {
   ngOnInit() {
   }
   changePwd(){
-    
+    //to do
   }
 }

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase} from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
 import{ ChatService } from '../chat.service';
-import {Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
@@ -11,48 +9,14 @@ import {Router} from '@angular/router';
 })
 export class ChatPage implements OnInit {
 
-  connected = false;
-  userId: string;
-  email: string;
   messageText: any;
-  login: string;
   messages = [];
-  //userId: any;
-  //get user() {
-    //return {
-      //  _id: firebase.auth().currentUser.uid, // Problem is here. Make sure user is logged in before doing this.
-      //  name: "User",
-    //};
-  //}
-  
-
+  userId: string;
   constructor(
-    public firestore: AngularFirestore,
-    private  service:ChatService,
-    private router:Router,
-    private afDB :AngularFireDatabase,
-    private afAuth :AngularFireAuth,
+    private  service:ChatService
     ) { 
-    this.afAuth.authState.subscribe(auth => {
-      if (!auth) {
-        console.log('non connecté');
-      } else {
-        console.log('UserId: ' + auth.uid);
-        this.connected = true;
-        this.userId = auth.uid;
-        this.email = auth.email;
-        this.getMessages();
-      }
-    });
-    this.firestore.collection("User").snapshotChanges()
-    .subscribe(actions => {
-      actions.forEach(action => {
-        if (action.payload.doc.data()["email"]==this.email){
-          this.login= action.payload.doc.data()["login"] ;
-                  
-          }
-      });
-    });
+     
+      this.getMessages();
   }
 
   ngOnInit() {
@@ -60,11 +24,11 @@ export class ChatPage implements OnInit {
 
 
   sendMessage(){
-    console.log('messageText :' + this.login)
+    console.log('messageText :' + this.service.login)
     console.log('messageText :' + this.messageText)
-    this.firestore.collection('Message').add({
-      userId: this.userId,
-      login: this.login,
+    this.service.firestore.collection('Message').add({
+      userId: this.service.userId,
+      login: this.service.login,
       text: this.messageText,
       date: new Date().toISOString()
     });
@@ -74,7 +38,7 @@ export class ChatPage implements OnInit {
 
   getMessages() {
     
-    this.firestore.collection("Message", ref => ref.orderBy('date')).snapshotChanges()
+    this.service.firestore.collection("Message", ref => ref.orderBy('date')).snapshotChanges()
     .subscribe(actions => {
       this.messages = [];
       actions.forEach(action => {
@@ -88,4 +52,5 @@ export class ChatPage implements OnInit {
     });
      
   }
+
 }

@@ -11,7 +11,7 @@
     </ion-buttons>
     <ion-title>
       <center>
-        <b>  Group chat </b>
+        <b>  Group CHAT </b>
     </center>
     </ion-title>
 
@@ -23,8 +23,8 @@
 <div class="stream" >
   
   <ion-item lines="none" *ngFor="let message of messages">
-    <ion-badge text-wrap *ngIf="message.userId == userId" slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-badge>
-    <ion-badge text-wrap *ngIf="message.userId != userId" slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-badge>
+    <ion-badge text-wrap *ngIf="message.userId == service.userId" slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-badge>
+    <ion-badge text-wrap *ngIf="message.userId != service.userId" slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-badge>
   </ion-item>
 </div>
 </ion-content>
