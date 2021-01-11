@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'account',
     loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   },
+  {
+    path: 'grp',
+    loadChildren: () => import('./grp/grp.module').then( m => m.GrpPageModule)
+  },
 
 ];
 
