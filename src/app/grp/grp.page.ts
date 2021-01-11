@@ -47,4 +47,8 @@ export class GrpPage implements OnInit {
      
   }
 
+  Gogrp(){
+    
+  }
+
 }
