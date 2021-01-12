@@ -5,4 +5,26 @@
 </ion-header>
 
 <ion-content>
+  <div class="stream" >
+    
+    <ion-item lines="none" *ngFor="let message of messages" >
+      <ion-badge text-wrap *ngIf="message.userId == service.userId && message.grpTitle == grpchat.title" slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-badge>
+      <ion-badge text-wrap *ngIf="message.userId != service.userId && message.grpTitle == grpchat.title" slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-badge>
+    </ion-item>
+  </div>
 </ion-content>
+
+<ion-footer>
+<ion-grid>
+  <ion-row>
+    <ion-col size ="10" class="input-col">
+      <ion-input [(ngModel)]="messageText" placeholder="Entrez votre message" type="text"></ion-input>
+    </ion-col>
+    <ion-col size ="2" class="send-col">
+      <ion-button shape="full" (click)="sendMessage()" color="#ffc0cb">
+        <ion-icon slot="icon-only" name="send" ></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-footer>
