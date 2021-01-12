@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'grp',
     loadChildren: () => import('./grp/grp.module').then( m => m.GrpPageModule)
   },
+  {
+    path: 'grpchat',
+    loadChildren: () => import('./grpchat/grpchat.module').then( m => m.GrpchatPageModule)
+  },
 
 ];
 

@@ -25,8 +25,8 @@
   <ion-button (click)="service.Go('\chat')" >{{ service.login }}</ion-button>
 --> 
   
-  <ion-item lines="none" *ngFor="let grp of groups">
-    <ion-button expand="block" fill ="clear" class="myb" color="tertiary" (click)="service.Go('/chat')"> {{ grp.title }} </ion-button>
+  <ion-item lines="none" *ngFor="let grpchat of groups" (click)="Gogrpchat(grpchat)">
+    <ion-button expand="block" fill ="clear" class="myb" color="tertiary"> {{ grpchat.title }} </ion-button>
   </ion-item>
 
 </ion-content>

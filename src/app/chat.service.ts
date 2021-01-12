@@ -10,6 +10,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ChatService {
 
+  currentChatGrp: any;
+
   connected = false;
   userId: string;
   email: string;

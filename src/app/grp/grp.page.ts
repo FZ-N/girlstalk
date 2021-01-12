@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{ ChatService } from '../chat.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-grp',
@@ -12,7 +13,8 @@ export class GrpPage implements OnInit {
   groups = [];
   userId: string;
   constructor(
-    private  service:ChatService
+    private  service:ChatService,
+    private router:Router
     ) { 
      
       this.getGrps();
@@ -47,8 +49,9 @@ export class GrpPage implements OnInit {
      
   }
 
-  Gogrp(){
-    
+  Gogrpchat(grpchat){
+    this.service.currentChatGrp = grpchat;
+    this.router.navigate(['/grpchat']);
   }
 
 }
