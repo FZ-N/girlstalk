@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {AngularFireDatabase} from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import{ UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,7 @@ export class ChatService {
     public firestore: AngularFirestore,
     private afDB :AngularFireDatabase,
     private afAuth :AngularFireAuth,
+    private  service:UserService
     ) {
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
@@ -48,11 +49,7 @@ export class ChatService {
   }
 
   logout(){
-    console.log("Logout");
-    this.connected = false;
-    this.afAuth.signOut().then(() => {
-      this.router.navigate(['/login']);
-    });
+   this.service.logout();
   }
 
 }

@@ -111,7 +111,7 @@ export class UserService {
     .subscribe(actions => {
       this.onlineusers = [];
       actions.forEach(action => {
-        if(action.payload.doc.data()["online"] == "yes"){
+        if(action.payload.doc.data()["online"] == "yes" && action.payload.doc.data()["login"] != this.login){
           console.log("one");
         this.onlineusers.push({
           login :action.payload.doc.data()["login"],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import{ ChatService } from '../chat.service';
+import{ UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import{ ChatService } from '../chat.service';
 export class HomePage {
   connected = false;
 
-  constructor(private  service:ChatService ) { }
+  constructor(private  service:UserService ) { }
 
  
 
