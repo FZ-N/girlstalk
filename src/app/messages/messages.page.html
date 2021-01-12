@@ -11,25 +11,14 @@
     </ion-buttons>
     <ion-title>
       <center>
-        <b> My Account</b>
+        <b>  Private CHAT </b>
     </center>
     </ion-title>
 
   </ion-toolbar>
+
 </ion-header>
-
+<!--    <ion-title *ngIf="connected">{{userId}}</ion-title>-->
 <ion-content>
-<br>
-  <img src="assets/lg.png" />
-
-<center>  
-  <h2 >{{service.email}} </h2>
- 
-  <h2 >{{service.login}} </h2>
-<br>
-  <ion-button *ngIf=" service.online == 'yes'" expand="block" (click)="changeOffline(service.email)" color="secondary">Show me offline</ion-button>
-  <ion-button *ngIf=" service.online == 'no'" expand="block" (click)="changeOnline(service.email)" color="medium">Show me online</ion-button>
-
-</center>
-
+  <ion-button expand="block" fill ="clear" class="myb2"  (click)="service.Go('\online')">Online users</ion-button>
 </ion-content>

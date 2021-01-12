@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { __await } from 'tslib';
 import{ ChatService } from '../chat.service';
-
+import{ UserService } from '../user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
     email :'',
     password:''
   }
-  constructor(private  service:ChatService,private router:Router, public ngFireAuth: AngularFireAuth) { }
+  constructor(private  service:ChatService,private serviceuser:UserService,private router:Router, public ngFireAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
     console.log(user);
     if(user.user.email){
       this.router.navigate(['/home']);
+      this.serviceuser.onlineUser(this.user.email);
     }else{
       alert('login failed !');
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import{ ChatService } from '../chat.service';
+import{ UserService } from '../user.service';
 
 @Component({
   selector: 'app-account',
@@ -9,11 +9,16 @@ import{ ChatService } from '../chat.service';
 })
 export class AccountPage implements OnInit {
 
-  constructor(private  service:ChatService) {   }
+  constructor(private  service:UserService) {   }
 
   ngOnInit() {
   }
-  changePwd(){
-    //to do
+
+  changeOnline(mail){
+    this.service.onlineUser(mail)
+  }
+
+  changeOffline(mail){
+    this.service.offlineUser(mail)
   }
 }

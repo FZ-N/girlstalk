@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'forum',
     loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
   },
@@ -42,6 +43,16 @@ const routes: Routes = [
     path: 'grpchat',
     loadChildren: () => import('./grpchat/grpchat.module').then( m => m.GrpchatPageModule)
   },
+  {
+    path: 'online',
+    loadChildren: () => import('./online/online.module').then( m => m.OnlinePageModule)
+  },
+  
+  {
+    path: 'messages',
+    loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
+  },
+
 
 ];
 

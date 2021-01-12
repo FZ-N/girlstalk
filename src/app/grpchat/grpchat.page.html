@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>{{grpchat.title}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\grp')"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+        <ion-button color="light" (click)="service.logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <center>
+        <b>  {{grpchat.title}}</b>
+    </center>
+    </ion-title>
 
+  </ion-toolbar>
+
+</ion-header>
 <ion-content>
   <div class="stream" >
     
