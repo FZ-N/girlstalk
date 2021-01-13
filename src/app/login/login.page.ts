@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { __await } from 'tslib';
 import{ ChatService } from '../chat.service';
 import{ UserService } from '../user.service';
+import{ AdminService } from '../admin.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,7 +16,8 @@ export class LoginPage implements OnInit {
     email :'',
     password:''
   }
-  constructor(private  service:ChatService,private serviceuser:UserService,private router:Router, public ngFireAuth: AngularFireAuth) { }
+  private blocked:string;
+  constructor(private  service:ChatService,private serviceuser:UserService,private admin:AdminService,private router:Router, public ngFireAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -25,8 +27,9 @@ export class LoginPage implements OnInit {
     const user = await this.ngFireAuth.signInWithEmailAndPassword(this.user.email,this.user.password)
     console.log(user);
     if(user.user.email){
+      this.serviceuser.onlineUser(user.user.email);
+      console.log(this.user.email);
       this.router.navigate(['/home']);
-      this.serviceuser.onlineUser(this.user.email);
     }else{
       alert('login failed !');
     }

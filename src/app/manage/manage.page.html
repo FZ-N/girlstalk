@@ -1,0 +1,30 @@
+
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\messages')"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+        <ion-button color="light" (click)="service.logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <center>
+        <b>  ALL users </b>
+    </center>
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<!--    <ion-title *ngIf="connected">{{userId}}</ion-title>-->
+<ion-content>
+<div class="stream" >
+  
+  <ion-item lines="none" *ngFor="let alluser of service.allusers">
+    <ion-button  *ngIf="alluser.blocked =='no'" color="secondary" (click)="service.blockUser(alluser.mail)" color="secondary"> {{alluser.login}} : block</ion-button>
+    <ion-button  *ngIf="alluser.blocked =='yes'" color="secondary" (click)="service.unblockUser(alluser.mail)" color="medium"> {{alluser.login}} : unblock</ion-button>
+  </ion-item>
+</div>
+</ion-content>

@@ -23,13 +23,16 @@
 
 
   <center>    
-    <h2><b> Bienvenue {{service.login}} !</b></h2>
+    <h2><b *ngIf=" this.admin.howUser(service.login)=='no'" > Welcome home {{service.login}} !</b></h2>
+    <button *ngIf=" this.admin.howUser(service.login)=='yes'" class="myb" (click)="service.logout()" > Sorry {{service.login}}, you have been BLOCKED !</button>
+  
     <br>
     <!--ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/chat')" >Go Chat</ion-button-->
-    <ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/chat')" >Public Chat</ion-button>
-    <ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/grp')"  >Chat Rooms</ion-button>
-    <ion-button expand="block" fill ="clear" class="myb"  (click)="service.Go('/messages')">Private Chat</ion-button>
-    <ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/account')" >My account</ion-button>
+    <ion-button *ngIf=" this.admin.howUser(service.email)=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/chat')" >Public Chat</ion-button>
+    <ion-button *ngIf=" this.admin.howUser(service.email)=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/grp')"  >Chat Rooms</ion-button>
+    <ion-button *ngIf=" this.admin.howUser(service.email)=='no'" expand="block" fill ="clear" class="myb"  (click)="service.Go('/messages')">Private Chat</ion-button>
+    <ion-button *ngIf=" this.admin.howUser(service.email)=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/account')" >My account</ion-button>
+  
   </center>
 
   </div>

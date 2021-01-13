@@ -42,12 +42,13 @@ export class ChatPage implements OnInit {
     .subscribe(actions => {
       this.messages = [];
       actions.forEach(action => {
+        if(!action.payload.doc.data()["grpTitle"]){
         this.messages.push({
           userId: action.payload.doc.data()["userId"],
           login :action.payload.doc.data()["login"],
           text:  action.payload.doc.data()["text"],
           date: action.payload.doc.data()["date"],
-        });
+        });}
       });
     });
      

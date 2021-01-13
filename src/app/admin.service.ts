@@ -5,33 +5,37 @@ import {AngularFireDatabase} from '@angular/fire/database';
 import { AngularFirestoreCollection, AngularFirestore, DocumentReference } from '@angular/fire/firestore'; 
 import { Observable } from 'rxjs';  
 import { map, take } from 'rxjs/operators';  
+import{ UserService } from './user.service';
 
 export interface User {  
   login: string;  
   email: string;  
   online: string;  
+  blocked:string
 }  
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AdminService {
 
   connected = false;
   userId: string;
+  res: string;
   email: string;
   login: string;
   onlineid: string;
   online: string;
   private users: Observable<User[]>;  
   private userCollection: AngularFirestoreCollection<User>;  
-  onlineusers = [];
+  allusers = [];
 
   constructor(
     private router:Router,
     public firestore: AngularFirestore,
     private afDB :AngularFireDatabase,
     private afAuth :AngularFireAuth,
+    private  service:UserService
     ) {
     this.userCollection = this.firestore.collection<User>('User');   
     this.afAuth.authState.subscribe(auth => {
@@ -53,26 +57,16 @@ export class UserService {
           }
       });
     });
-    this.getOnlineUsers();
+    this.getUsers();
   }
 
   async Go(x){
     this.router.navigate([x]);
   }
 
-  logout(){
-    console.log("Logout");
-    this.connected = false;
-    this.offlineUser(this.email);
-    this.login ="";
-    this.email ="";
-    this.afAuth.signOut().then(() => {
-      this.router.navigate(['/login']);
-    });
-   
-  }
 
-  onlineUser(mail){  
+
+  blockUser(mail){  
     this.firestore.collection("User").snapshotChanges()
     .subscribe(actions => {
       actions.forEach(action => {
@@ -85,10 +79,9 @@ export class UserService {
     if(this.onlineid){
     this.updateUser("yes");
    }
-   this.online ="yes";
   } 
 
-  offlineUser(mail){  
+  unblockUser(mail){  
     this.firestore.collection("User").snapshotChanges()
     .subscribe(actions => {
       actions.forEach(action => {
@@ -100,29 +93,48 @@ export class UserService {
     });
   
     this.updateUser("no");
-    this.online ="no";
   } 
 
   updateUser(status): Promise<void> {  
-    return this.userCollection.doc(this.onlineid).update({ online: status});  
+    return this.userCollection.doc(this.onlineid).update({ blocked : status});  
   } 
 
 
-  getOnlineUsers() {
+  getUsers() {
     
     this.firestore.collection("User").snapshotChanges()
     .subscribe(actions => {
-      this.onlineusers = [];
+      this.allusers = [];
       actions.forEach(action => {
-        if(action.payload.doc.data()["online"] == "yes" && action.payload.doc.data()["login"] != this.login){
+        if( action.payload.doc.data()["login"] != this.login){
           console.log("one");
-        this.onlineusers.push({
+        this.allusers.push({
           login :action.payload.doc.data()["login"],
           mail:  action.payload.doc.data()["email"],
+          blocked :action.payload.doc.data()["blocked"] 
         });}
       });
     });
      
+  }
+
+  logout(){
+    this.service.logout();
+  }
+
+  howUser(mail):string{
+    
+    this.firestore.collection("User").snapshotChanges()
+    .subscribe(actions => {
+      actions.forEach(action => {
+       
+        if (action.payload.doc.data()["email"]==mail){
+     
+          this.res = action.payload.doc.data()["blocked"]  ;
+          }
+      });
+    });
+    return this.res;
   }
 
 }

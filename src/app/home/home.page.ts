@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import{ UserService } from '../user.service';
-
+import{ AdminService } from '../admin.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,8 +8,12 @@ import{ UserService } from '../user.service';
 })
 export class HomePage {
   connected = false;
+  private blocked:string;
+  constructor(private  service:UserService ,private  admin:AdminService ) { 
 
-  constructor(private  service:UserService ) { }
+        console.log(service.email);
+        console.log(service.login);
+      }
 
  
 

@@ -26,6 +26,9 @@
   <h2 >{{service.email}} </h2>
  
   <h2 >{{service.login}} </h2>
+  <br>
+  <ion-button *ngIf=" service.login == 'admin'" expand="block" (click)="service.Go('\manage')" color="medium">Show all users</ion-button>
+
 <br>
   <ion-button *ngIf=" service.online == 'yes'" expand="block" (click)="changeOffline(service.email)" color="secondary">Show me offline</ion-button>
   <ion-button *ngIf=" service.online == 'no'" expand="block" (click)="changeOnline(service.email)" color="medium">Show me online</ion-button>

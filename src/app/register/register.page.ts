@@ -37,6 +37,8 @@ export class RegisterPage implements OnInit {
     this.firestore.collection('User').add({
       email: this.user.email,
       login: await this.user.login,
+      online: "no",
+      blocked: "no"
     });
     if(user.user.email){
       alert('Registered successfully !');
