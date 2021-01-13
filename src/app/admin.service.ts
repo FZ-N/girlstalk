@@ -122,19 +122,6 @@ export class AdminService {
     this.service.logout();
   }
 
-  howUser(mail):string{
-    
-    this.firestore.collection("User").snapshotChanges()
-    .subscribe(actions => {
-      actions.forEach(action => {
-       
-        if (action.payload.doc.data()["email"]==mail){
-     
-          this.res = action.payload.doc.data()["blocked"]  ;
-          }
-      });
-    });
-    return this.res;
-  }
+
 
 }
