@@ -28,7 +28,7 @@
   
     <br>
     <!--ion-button expand="block" fill ="clear" class="myb" (click)="service.Go('/chat')" >Go Chat</ion-button-->
-    <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/chat')" >Public Chat</ion-button>
+    <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/rules')" >Chat RULES</ion-button>
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/grp')"  >Chat Rooms</ion-button>
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb"  (click)="service.Go('/messages')">Private Chat</ion-button>
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/account')" >My account</ion-button>

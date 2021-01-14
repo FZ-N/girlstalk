@@ -56,6 +56,10 @@ const routes: Routes = [
     path: 'manage',
     loadChildren: () => import('./manage/manage.module').then( m => m.ManagePageModule)
   },
+  {
+    path: 'rules',
+    loadChildren: () => import('./rules/rules.module').then( m => m.RulesPageModule)
+  },
 
 
 ];

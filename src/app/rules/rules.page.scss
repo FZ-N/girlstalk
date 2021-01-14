@@ -1,0 +1,35 @@
+ion-col{
+    border: solid pink 1px;
+}
+
+ion-title{
+    color: #ffc0cb;
+}
+ion-content{
+
+    --ion-background-color: #FFD0FF
+  }
+ion-button{
+    color: pink;
+
+}
+.myb{
+
+    margin: 5px 5px;
+    
+    color : white;
+    text-align: center;
+    width: fit-content;
+    background-color: #e63094;
+    font-size: 16px;
+    }
+
+    .myb2{
+        width: fit-content;
+        color : #ec2a8b;
+        background-color: white;
+        font-size: 14px;
+        border-style: solid;
+        border-radius: 5%;
+        border-color: #af25e6;
+        }

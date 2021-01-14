@@ -1,0 +1,40 @@
+
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\home')"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+        <ion-button color="light" (click)="service.logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <center>
+        <b>  CHAT RULES </b>
+    </center>
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<!--    <ion-title *ngIf="connected">{{userId}}</ion-title>-->
+<ion-content>
+  <div class="stream" >
+    
+    <img src="assets/lg.png" />
+    <center>
+      <ion-button text-wrap slot="end"  class="myb"> 1- Be sure you are a girl as long <br> as  we can’t check it!</ion-button>
+     <br>
+      <ion-button  class="myb"> 2 - Be polite and respectful<br>  at all times.</ion-button>
+      <br>
+      <ion-button text-wrap slot="end"  class="myb"> 3 - No insult, no racist comments.</ion-button>
+    </center>
+      <ion-card text-wrap slot="end" class="myb2">
+        <ion-card-content class="myb2">
+         <center> <b>Girls who don't respect those rules will be BLOCKED and can no longuer access the chat ! </b></center>
+     </ion-card-content>
+     </ion-card>
+  </div>
+  </ion-content>
+  
