@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
-      <ion-menu-button auto-hide="false"  (click)="service.Go('\home')"></ion-menu-button>
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\messages')"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="primary">
         <ion-button color="light" (click)="service.logout()">
@@ -11,7 +11,7 @@
     </ion-buttons>
     <ion-title>
       <center>
-        <b>  Private CHAT </b>
+        <b>  Offline users </b>
     </center>
     </ion-title>
 
@@ -20,6 +20,10 @@
 </ion-header>
 <!--    <ion-title *ngIf="connected">{{userId}}</ion-title>-->
 <ion-content>
-  <ion-button expand="block" fill ="clear" class="myb2"  (click)="service.Go('\online')">Online users</ion-button>
-  <ion-button expand="block" fill ="clear" class="myb2"  (click)="service.Go('\offline')">Offline users</ion-button>
+<div class="stream" >
+  
+  <ion-item lines="none" *ngFor="let offlineuser of service.offlineusers" (click)="Gochatindiv(offlineuser)">
+    <ion-button  color="secondary"> <h3>{{offlineuser.login}} </h3></ion-button>
+  </ion-item>
+</div>
 </ion-content>

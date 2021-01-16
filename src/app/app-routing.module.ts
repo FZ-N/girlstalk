@@ -63,6 +63,10 @@ const routes: Routes = [
     path: 'chatindiv',
     loadChildren: () => import('./chatindiv/chatindiv.module').then( m => m.ChatindivPageModule)
   },
+  {
+    path: 'offline',
+    loadChildren: () => import('./offline/offline.module').then( m => m.OfflinePageModule)
+  },
 
 
 

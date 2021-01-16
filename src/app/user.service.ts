@@ -28,6 +28,7 @@ export class UserService {
   private users: Observable<User[]>;  
   private userCollection: AngularFirestoreCollection<User>;  
   onlineusers = [];
+  offlineusers = [];
 
   constructor(
     private router:Router,
@@ -56,6 +57,7 @@ export class UserService {
       });
     });
     this.getOnlineUsers();
+    this.getOfflineUsers();
   }
 
   async Go(x){
@@ -119,6 +121,23 @@ export class UserService {
         if(action.payload.doc.data()["online"] == "yes" && action.payload.doc.data()["login"] != this.login){
           console.log("one");
         this.onlineusers.push({
+          login :action.payload.doc.data()["login"],
+          mail:  action.payload.doc.data()["email"],
+        });}
+      });
+    });
+     
+  }
+
+  getOfflineUsers() {
+    
+    this.firestore.collection("User").snapshotChanges()
+    .subscribe(actions => {
+      this.offlineusers = [];
+      actions.forEach(action => {
+        if(action.payload.doc.data()["online"] == "no" && action.payload.doc.data()["login"] != this.login){
+          console.log("one");
+        this.offlineusers.push({
           login :action.payload.doc.data()["login"],
           mail:  action.payload.doc.data()["email"],
         });}
