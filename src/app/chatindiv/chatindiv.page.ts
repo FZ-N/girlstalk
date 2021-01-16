@@ -30,7 +30,7 @@ export class ChatindivPage implements OnInit {
       login: this.service.login,
       text: this.messageIndivText,
       date: new Date().toISOString(),
-      onlineuser: this.onlineuser.title
+      onlineuser: this.onlineuser.login
     });
     this.messageIndivText='';
   }
