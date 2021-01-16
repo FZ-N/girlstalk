@@ -22,16 +22,10 @@
   <div class="stream" >
     
     <ion-item lines="none" *ngFor="let messageIndiv of messagesIndiv" >
-      <!-- mauve
-      <ion-badge text-wrap *ngIf="messageIndiv.onlineuser == onlineuser.login" slot="end" color="tertiary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
-       -->
-      <!-- rose 
-      <ion-badge text-wrap *ngIf="messageIndiv.userId == messageIndiv.login" slot="start" color="secondary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
-      -->
-
-
-      <ion-badge text-wrap *ngIf=" onlineuser.login == messageIndiv.onlineuser" slot="end" color="tertiary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
-      <!-- rose --><ion-badge text-wrap *ngIf=" onlineuser.login == messageIndiv.onlineuse " slot="start" color="secondary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
+      
+      <ion-badge text-wrap *ngIf="onlineuser.login == messageIndiv.onlineuser" slot="end" color="tertiary"> {{ messageIndiv.text }}</ion-badge>
+      <ion-badge text-wrap *ngIf="onlineuser.login == messageIndiv.login " slot="start" color="secondary"> {{ messageIndiv.text }}</ion-badge>
+           
     </ion-item>
   </div>
 </ion-content>
