@@ -1,9 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>chatindiv</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\online')"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+        <ion-button color="light" (click)="service.logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <center>
+        <b>  {{onlineuser.login}}</b>
+    </center>
+    </ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-  <p>Teeeeest</p>
+  <div class="stream" >
+    
+    <ion-item lines="none" *ngFor="let messageIndiv of messagesIndiv" >
+      <!-- mauve
+      <ion-badge text-wrap *ngIf="messageIndiv.onlineuser == onlineuser.login" slot="end" color="tertiary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
+       -->
+      <!-- rose 
+      <ion-badge text-wrap *ngIf="messageIndiv.userId == messageIndiv.login" slot="start" color="secondary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
+      -->
+
+
+      <ion-badge text-wrap *ngIf=" onlineuser.login == messageIndiv.onlineuser" slot="end" color="tertiary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
+      <!-- rose --><ion-badge text-wrap *ngIf=" onlineuser.login == messageIndiv.onlineuse " slot="start" color="secondary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-badge>
+    </ion-item>
+  </div>
 </ion-content>
+
