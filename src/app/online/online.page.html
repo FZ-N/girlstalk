@@ -22,8 +22,8 @@
 <ion-content>
 <div class="stream" >
   
-  <ion-item lines="none" *ngFor="let onlineuser of service.onlineusers">
-    <ion-button  color="secondary" (click)="service.chat(onlineuser.mail)"> <h3>{{onlineuser.login}} </h3></ion-button>
+  <ion-item lines="none" *ngFor="let onlineuser of service.onlineusers" (click)="Gochatindiv(onlineuser)">
+    <ion-button  color="secondary"> <h3>{{onlineuser.login}} </h3></ion-button>
   </ion-item>
 </div>
 </ion-content>

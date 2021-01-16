@@ -17,6 +17,8 @@ export interface User {
 })
 export class UserService {
 
+  currentChatindiv: any;
+  
   connected = false;
   userId: string;
   email: string;
