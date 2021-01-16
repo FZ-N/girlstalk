@@ -59,7 +59,11 @@ const routes: Routes = [
   {
     path: 'rules',
     loadChildren: () => import('./rules/rules.module').then( m => m.RulesPageModule)
+  },  {
+    path: 'chatindiv',
+    loadChildren: () => import('./chatindiv/chatindiv.module').then( m => m.ChatindivPageModule)
   },
+
 
 
 ];
