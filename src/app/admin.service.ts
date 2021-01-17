@@ -107,7 +107,6 @@ export class AdminService {
       this.allusers = [];
       actions.forEach(action => {
         if( action.payload.doc.data()["login"] != this.login){
-          console.log("one");
         this.allusers.push({
           login :action.payload.doc.data()["login"],
           mail:  action.payload.doc.data()["email"],

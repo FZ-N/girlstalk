@@ -25,6 +25,7 @@ export class UserService {
   login: string;
   onlineid: string;
   online: string;
+   logins =[];
   private users: Observable<User[]>;  
   private userCollection: AngularFirestoreCollection<User>;  
   onlineusers = [];
@@ -120,7 +121,7 @@ export class UserService {
       this.onlineusers = [];
       actions.forEach(action => {
         if(action.payload.doc.data()["online"] == "yes" && action.payload.doc.data()["login"] != this.login){
-          console.log("one");
+        //  console.log("one");
         this.onlineusers.push({
           login :action.payload.doc.data()["login"],
           mail:  action.payload.doc.data()["email"],
@@ -130,6 +131,18 @@ export class UserService {
      
   }
 
+  checkLogin() {
+    var i = 0;
+    this.firestore.collection("User").snapshotChanges()
+    .subscribe(actions => {
+      actions.forEach(action => {
+         this.logins.push(
+        action.payload.doc.data()["login"]
+        );
+      });
+    });
+  }
+
   getOfflineUsers() {
     
     this.firestore.collection("User").snapshotChanges()
@@ -137,7 +150,7 @@ export class UserService {
       this.offlineusers = [];
       actions.forEach(action => {
         if(action.payload.doc.data()["online"] == "no" && action.payload.doc.data()["login"] != this.login){
-          console.log("one");
+         // console.log("one");
         this.offlineusers.push({
           login :action.payload.doc.data()["login"],
           mail:  action.payload.doc.data()["email"],
