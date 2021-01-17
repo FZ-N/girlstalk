@@ -23,7 +23,7 @@
 <div class="stream" >
   
   <ion-item lines="none" *ngFor="let offlineuser of service.offlineusers" (click)="Gochatindiv(offlineuser)">
-    <ion-button  color="secondary"> <h3>{{offlineuser.login}} </h3></ion-button>
+    <ion-button class="shadow" color="secondary"> <h3>{{offlineuser.login}} </h3></ion-button>
   </ion-item>
 </div>
 </ion-content>
