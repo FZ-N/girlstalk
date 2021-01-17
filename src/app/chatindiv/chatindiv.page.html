@@ -23,10 +23,10 @@
     
     <ion-item lines="none" *ngFor="let messageIndiv of messagesIndiv" >
       
-      <ion-badge text-wrap *ngIf="onlineuser.login == messageIndiv.onlineuser && service.login == messageIndiv.login" slot="end" color="tertiary"> {{ messageIndiv.text }}</ion-badge>
-      <ion-badge text-wrap *ngIf="onlineuser.login == messageIndiv.login && service.login == messageIndiv.onlineuser" slot="start" color="secondary"> {{ messageIndiv.text }}</ion-badge>
+      <ion-item text-wrap style="margin:10px"   *ngIf="onlineuser.login == messageIndiv.onlineuser" slot="end" color="tertiary"> {{ messageIndiv.text }}</ion-item><br>
+      <ion-item text-wrap style="margin:10px"   *ngIf="onlineuser.login == messageIndiv.login" slot="start" color="secondary"> {{ messageIndiv.text }}</ion-item><br>
            
-    </ion-item>
+    </ion-item><br>
   </div>
 </ion-content>
 

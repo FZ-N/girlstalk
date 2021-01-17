@@ -25,6 +25,6 @@
   <ion-item lines="none" *ngFor="let alluser of service.allusers">
     <ion-button  *ngIf="alluser.blocked =='no'" color="secondary" (click)="service.blockUser(alluser.mail)" color="secondary"> {{alluser.login}} : block</ion-button>
     <ion-button  *ngIf="alluser.blocked =='yes'" color="secondary" (click)="service.unblockUser(alluser.mail)" color="medium"> {{alluser.login}} : unblock</ion-button>
-  </ion-item>
+  </ion-item><br>
 </div>
 </ion-content>

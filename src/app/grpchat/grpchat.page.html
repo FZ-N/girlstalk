@@ -21,9 +21,9 @@
   <div class="stream" >
     
     <ion-item lines="none" *ngFor="let message of messages" >
-      <ion-badge text-wrap *ngIf="message.userId == service.userId && message.grpTitle == grpchat.title" slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-badge>
-      <ion-badge text-wrap *ngIf="message.userId != service.userId && message.grpTitle == grpchat.title" slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-badge>
-    </ion-item>
+      <ion-item text-wrap style="margin:10px"   *ngIf="message.userId == service.userId" slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-item><br>
+      <ion-item text-wrap style="margin:10px"   *ngIf="message.userId != service.userId" slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-item><br>
+    </ion-item><br>
   </div>
 </ion-content>
 

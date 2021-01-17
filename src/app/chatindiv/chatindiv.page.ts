@@ -42,13 +42,23 @@ export class ChatindivPage implements OnInit {
     .subscribe(actions => {
       this.messagesIndiv = [];
       actions.forEach(action => {
-        this.messagesIndiv.push({
+    
+        if(action.payload.doc.data()["login"]== this.service.login && action.payload.doc.data()["onlineuser"]== this.onlineuser.login)
+        {this.messagesIndiv.push({
           userId: action.payload.doc.data()["userId"],
           login :action.payload.doc.data()["login"],
           text:  action.payload.doc.data()["text"],
           date: action.payload.doc.data()["date"],
           onlineuser: action.payload.doc.data()["onlineuser"]
-        });
+        });}
+        if(action.payload.doc.data()["login"]== this.onlineuser.login  && action.payload.doc.data()["onlineuser"]==this.service.login)
+        {this.messagesIndiv.push({
+          userId: action.payload.doc.data()["userId"],
+          login :action.payload.doc.data()["login"],
+          text:  action.payload.doc.data()["text"],
+          date: action.payload.doc.data()["date"],
+          onlineuser: action.payload.doc.data()["onlineuser"]
+        });}
       });
     });
      

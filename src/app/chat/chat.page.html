@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
-      <ion-menu-button auto-hide="false"  (click)="service.Go('\home')"></ion-menu-button>
+      <ion-menu-button auto-hide="false"  (click)="service.Go('\grp')"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="primary">
         <ion-button color="light" (click)="service.logout()">
@@ -24,9 +24,10 @@
   
   <ion-item lines="none" *ngFor="let message of messages">
 
-    <ion-badge text-wrap *ngIf="message.userId == service.userId " slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-badge>
-    <ion-badge text-wrap *ngIf="message.userId != service.userId " slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-badge>
-  </ion-item>
+    <ion-item text-wrap style="margin:10px" *ngIf="message.userId == service.userId " slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-item><br>
+
+    <ion-item text-wrap style="margin:10px"   *ngIf="message.userId != service.userId " slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-item><br>
+  </ion-item><br>
 </div>
 </ion-content>
 
