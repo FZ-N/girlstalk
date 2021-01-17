@@ -16,14 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'forum',
-    loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
-  },
-  {
-    path: 'forum',
-    loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
-  },
-  {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   },
@@ -59,7 +51,8 @@ const routes: Routes = [
   {
     path: 'rules',
     loadChildren: () => import('./rules/rules.module').then( m => m.RulesPageModule)
-  },  {
+  },
+  {
     path: 'chatindiv',
     loadChildren: () => import('./chatindiv/chatindiv.module').then( m => m.ChatindivPageModule)
   },
