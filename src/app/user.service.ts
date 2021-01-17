@@ -29,6 +29,7 @@ export class UserService {
   private userCollection: AngularFirestoreCollection<User>;  
   onlineusers = [];
   offlineusers = [];
+  pms = [];
 
   constructor(
     private router:Router,
@@ -145,5 +146,27 @@ export class UserService {
     });
      
   }
+
+  getPrivateMessages() {
+    this.firestore.collection("MessageIndiv", ref => ref.orderBy('date')).snapshotChanges()
+    .subscribe(actions => {
+      this.pms = [];
+      actions.forEach(action => {
+
+        if(action.payload.doc.data()["login"]==this.login && !this.pms.some(e => e.login === action.payload.doc.data()["onlineuser"])){
+        this.pms.push({
+          login: action.payload.doc.data()["onlineuser"]
+        });};
+        if(action.payload.doc.data()["onlineuser"]==this.login && !this.pms.some(e => e.login === action.payload.doc.data()["login"])){
+          this.pms.push({
+            login: action.payload.doc.data()["login"]
+          });}
+      });
+      console.log(this.pms[2]);
+      console.log(this.pms.some(e => e.login === 'admin'));
+    });
+     
+  }
+  
 
 }

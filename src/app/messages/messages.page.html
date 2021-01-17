@@ -11,7 +11,7 @@
     </ion-buttons>
     <ion-title>
       <center>
-        <b>  Private CHAT </b>
+        <b>  My Private CHAT </b>
     </center>
     </ion-title>
 
@@ -21,7 +21,20 @@
 <!--    <ion-title *ngIf="connected">{{userId}}</ion-title>-->
 <ion-content>
 
-    <ion-button expand="block" fill ="clear" class="myb2"  (click)="service.Go('\online')">Show All Online users</ion-button>
-    <ion-button expand="block" fill ="clear" class="myb"  (click)="service.Go('\offline')">Offline users</ion-button>
+  <center>
+    <div class="stream" >
+   
+      <ion-item lines="none" *ngFor="let pm of service.pms" (click)="Gochatindiv(pm)">
+        <ion-button class="myb1" color="secondary"> <h3>{{pm.login}} </h3></ion-button>
+      </ion-item>
   
+    </div>
+  
+  </center>
 </ion-content>
+<ion-footer class="myColor">
+  <center>
+  <ion-button expand="block" fill ="clear" class="myb2"   (click)="service.Go('\online')">Show All Online users</ion-button>
+  <ion-button expand="block" fill ="clear" class="myb"  (click)="service.Go('\offline')">Show All Offline users</ion-button>
+</center>
+</ion-footer>
