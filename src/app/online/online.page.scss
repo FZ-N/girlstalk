@@ -1,4 +1,10 @@
 .shadow{
     box-shadow: 0px 14px 25px rgba(243, 127, 233, 0.59);
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 50%;
+    margin: auto
 }
