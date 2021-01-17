@@ -31,25 +31,25 @@
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/rules')" >
       <div>
         <ion-icon name="receipt-outline"></ion-icon>
-        <label>Chat RULES</label>
+        <label style="margin:10px">Chat RULES</label>
       </div>
     </ion-button>
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/grp')"  >
       <div>
         <ion-icon name="chatbubbles-outline"></ion-icon>
-        <label>Chat Rooms</label>
+        <label style="margin:10px">Chat Rooms</label>
       </div>
     </ion-button>
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb"  (click)="service.Go('/messages')">
       <div>
         <ion-icon name="chatbubble-outline"></ion-icon>
-        <label>Private Chat</label>
+        <label style="margin:10px">Private Chat</label>
       </div>
     </ion-button>
     <ion-button *ngIf=" this.blocked=='no'" expand="block" fill ="clear" class="myb" (click)="service.Go('/account')" >
       <div>
         <ion-icon name="person-outline"></ion-icon>
-        <label>My account</label>
+        <label style="margin:10px">My account</label>
       </div>
     </ion-button>
   
