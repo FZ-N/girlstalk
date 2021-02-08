@@ -32,7 +32,7 @@ export class ChatPage implements OnInit {
       userId: this.service.userId,
       login: this.service.login,
       text: this.messageText,
-      date: dateFormat[0] +" "+ dateFormat[1].substring(0, 5)      
+      date: dateFormat[0] +" "+ dateFormat[1].substring(0, 8)      
     });
     this.messageText='';
   }
