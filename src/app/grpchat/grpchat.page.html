@@ -20,11 +20,15 @@
 <ion-content>
   <div class="stream" >
     
-    <ion-item lines="none" *ngFor="let message of messages" >
-      <ion-item text-wrap style="margin:10px"   *ngIf="message.userId == service.userId" slot="end" color="tertiary"> {{ message.login +" : "+ message.text }}</ion-item><br>
-      <ion-item text-wrap style="margin:10px"   *ngIf="message.userId != service.userId" slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-item><br>
-    </ion-item><br>
-  </div>
+    <ion-item lines="none" *ngFor="let message of messages">
+      <div style =" text-align: right;"  slot="end" class="myb" *ngIf="message.userId == service.userId ">{{message.date}}</div> <br>
+      <ion-item text-wrap style="margin:10px" *ngIf="message.userId == service.userId " slot="end" color="tertiary"> {{ message.login +" : "+ message.text+"  " }}</ion-item> <br>
+   
+      <ion-item text-wrap style="margin:10px"   *ngIf="message.userId != service.userId " slot="start" color="secondary"> {{ message.login +" : "+ message.text }}</ion-item><br>
+      <br><ion-label  class="myb" *ngIf="message.userId != service.userId ">{{message.date}}</ion-label > <br>
+       
+  </ion-item><br>
+</div>
 </ion-content>
 
 <ion-footer>

@@ -23,13 +23,15 @@ export class ChatindivPage implements OnInit {
   }
 
   sendMessage(){
+    let myDate = new Date().toISOString().toString();
+    let dateFormat = myDate.split('T');
     console.log('messageIndivText :' + this.service.login)
     console.log('messageIndivText :' + this.messageIndivText)
     this.service.firestore.collection('MessageIndiv').add({
       userId: this.service.userId,
       login: this.service.login,
       text: this.messageIndivText,
-      date: new Date().toISOString(),
+      date: dateFormat[0] +" "+ dateFormat[1].substring(0, 5),
       onlineuser: this.onlineuser.login
     });
     this.messageIndivText='';

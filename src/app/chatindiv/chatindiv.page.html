@@ -23,9 +23,13 @@
     
     <ion-item lines="none" *ngFor="let messageIndiv of messagesIndiv" >
       
-      <ion-item text-wrap style="margin:10px"   *ngIf="onlineuser.login == messageIndiv.onlineuser" slot="end" color="tertiary"> {{ messageIndiv.text }}</ion-item><br>
-      <ion-item text-wrap style="margin:10px"   *ngIf="onlineuser.login == messageIndiv.login" slot="start" color="secondary"> {{ messageIndiv.text }}</ion-item><br>
-           
+       <ion-label style =" text-align: right;"  slot="end" class="myb" *ngIf="onlineuser.login == messageIndiv.onlineuser ">{{messageIndiv.date}}</ion-label > <br>
+        <ion-item text-wrap style="margin:10px" *ngIf="onlineuser.login == messageIndiv.onlineuser " slot="end" color="tertiary"> {{ messageIndiv.login +" : "+ messageIndiv.text+"  " }}</ion-item> <br>
+     
+        <ion-item text-wrap style="margin:10px"   *ngIf="onlineuser.login == messageIndiv.login" slot="start" color="secondary"> {{ messageIndiv.login +" : "+ messageIndiv.text }}</ion-item><br>
+        <br><ion-label  class="myb" *ngIf="onlineuser.login == messageIndiv.login ">{{messageIndiv.date}}</ion-label > <br>
+      
+      
     </ion-item><br>
   </div>
 </ion-content>

@@ -21,13 +21,15 @@ export class GrpchatPage implements OnInit {
   }
 
   sendMessage(){
+    let myDate = new Date().toISOString().toString();
+    let dateFormat = myDate.split('T');
     console.log('messageText :' + this.service.login)
     console.log('messageText :' + this.messageText)
     this.service.firestore.collection('Message').add({
       userId: this.service.userId,
       login: this.service.login,
       text: this.messageText,
-      date: new Date().toISOString(),
+      date:  dateFormat[0] +" "+ dateFormat[1].substring(0, 5),
       grpTitle: this.grpchat.title
     });
     this.messageText='';
